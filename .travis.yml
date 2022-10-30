@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - 16.18.0
+
+services:
+  - docker
+
+# Pre-testing installs
+install:
+  - echo "nothing needs to be installed"
+
+# Scripts to be run such as tests
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version # print the version for logging
+  - docker build -t backend-medxai ./MedAI
+  - docker tag backend-medxai dmt130/backend-medxai:v1
+
+  - docker build -t frontend-frontx ./frontx
+  - docker tag frontend-frontx dmt130/frontend-frontx:v1
+
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push dmt130/backend-medxai:v1
+  - docker push dmt130/frontend-frontx:v1
