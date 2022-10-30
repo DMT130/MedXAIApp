@@ -38,31 +38,37 @@ function App() {
 		};
 	};
 	getResponse.forEach((data, index) => {
-		deaseses.push(<p key={index} className="ml-3">{data}</p>)
+		deaseses.push(<p key={index}>{data}</p>)
 	})
 
 	return(
    		<div>
-			<div className="container mx-auto px-8 flex flex-col ...">
-				<div>
-					<input className="block w-full text-sm text-gray-800 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file"
+			<div>
+				<div class="text-center">
+					<input type="file"
 					onChange={changeHandler} />
 				</div>
-				<div>
-					<button type="button" class="block w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+				<br/>
+				<div class="text-center">
+					<button type="button" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"
 					onClick={handleSubmission}>Predict</button>
 				</div>
 			</div>
-			<div class="flex ...">
-				<div class="flex-none w-30 h-14 ...">
+			<div className="grid grid-cols-1 md:grid-cols-6 gap-4 max-w-md md:max-w-6xl mx-auto">
+				<div class="...">
 				<div>
-					<div>
+					<div class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 						{isFilePicked ? (
-							<div className="flex flex-col ...">
+							<div>
 								<div>Filename: {selectedFile.name}</div>
 								<div>Filetype: {selectedFile.type}</div>
 								<div>Size in bytes: {selectedFile.size}</div>
 								<div>lastModifiedDate:{' '}{selectedFile.lastModifiedDate.toLocaleDateString()}</div>
+								<br/>
+								<p>Predicted Deseases</p>
+								<div className='list-outside'>
+								{deaseses}
+								</div>
 							</div>
 						) : (
 							<div>Select a file to show details</div>
@@ -70,15 +76,12 @@ function App() {
 					</div>
 				</div>
 				</div>
-				<div class="grow h-14 ...">
+				<div class="col-span-5 ...">
 						{byteimg ? (
 							<img className="max-w-full h-auto" src={`data:image/jpeg;base64,${byteimg}`} alt="" />
 						) : (
 							<div>No Predictions</div>
 						)}
-				</div>
-				<div class="flex-none w-30 h-14 ...">
-					{deaseses}
 				</div>
 			</div>
 			
