@@ -26,3 +26,5 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push dmt130/backend-medxai:v1
   - docker push dmt130/frontend-frontx:v1
+
+  
