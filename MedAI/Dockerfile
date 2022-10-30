@@ -12,4 +12,4 @@ RUN pip3 install --upgrade pip
 
 RUN pip3 install --no-cache-dir -r requirmentsv2.txt
 
-CMD ["gunicorn", "--bind", "0.0.0.0:80", "main:app", "-w 4", "-k", "uvicorn.workers.UvicornWorke"]
+CMD ["uvicorn main:app", "--host 0.0.0.0", "--port 80", "--workers 4"]
