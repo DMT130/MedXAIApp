@@ -1,0 +1,10 @@
+version: "3"
+services:
+  backend_user:
+    build:
+      context: ./MedAI
+    image: backend-medxai
+  frontend:
+    build:
+      context: ./frontx
+    image: frontend-frontx
