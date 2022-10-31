@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from "react"
 //import axios from "axios";
 
-const preditURL = "http://localhost:8000/file/"
+const preditURL = "https://medxaiapp-v2-fc2s4lwtyq-uc.a.run.app/file/"
 
 function App() {
 	const [selectedFile, setSelectedFile] = useState();
