@@ -10,8 +10,9 @@ from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
 origins = [
+    "https://medxaiapp-frontend-fc2s4lwtyq-uc.a.run.app",
     "http://localhost:3000",
-    "http://localhost",
+    "http://localhost"
 ]
 
 
